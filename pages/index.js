@@ -65,6 +65,10 @@ export default function Home() {
         ) : (
           <div className={styles.result}>{result}</div>
         )}
+        <div className={styles.pay}>
+          <p>打赏他!!!</p>
+          <img src="https://imagev2.xmcdn.com/storages/d832-audiofreehighqps/F6/AE/GMCoOR4HuSh0AAHhugH1c2O2.jpeg" alt=''/>
+        </div>
       </main>
     </div>
   );
