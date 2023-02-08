@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "server_start": "pm2 start npm -- run start"
+    "server_start": "pm2 start npm -- run start",
+    "server_stop: "pm2 stop all",
   },
   "dependencies": {
     "next": "^13.1.1",
