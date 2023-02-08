@@ -29,14 +29,14 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setLoading(false);
       console.log("输入:", textInput);
       console.log("ai算法:", data.result);
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
-      // alert(error.message);
+      Toast.info("AI出错啦~ 请重新再试");
     }
+    setLoading(false);
   };
 
   return (
