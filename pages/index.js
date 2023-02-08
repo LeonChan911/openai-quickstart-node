@@ -48,6 +48,7 @@ export default function Home() {
       <main className={styles.main}>
         {/* <img src="/dog.png" className={styles.icon} /> */}
         <h3>Yin的ai许愿瓶</h3>
+        <h4>基于chatGPT引擎</h4>
         {loading && <p>AI正在计算中...</p>}
         <div className={styles.form}>
           <textarea

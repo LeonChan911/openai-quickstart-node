@@ -38,7 +38,13 @@
   line-height: 40px;
   font-weight: bold;
   color: #202123;
-  margin: 16px 0 40px;
+  margin: 16px 0 16px;
+}
+.main h4 {
+  font-size: 20px;
+  line-height: 15px;
+  color: #686a6d;
+  margin: 16px 0 16px;
 }
 
 .form {
