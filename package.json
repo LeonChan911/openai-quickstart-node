@@ -10,6 +10,7 @@
     "server_stop": "pm2 stop all"
   },
   "dependencies": {
+    "js-cookie": "^3.0.1",
     "light-toast": "^0.3.5",
     "next": "^13.1.1",
     "openai": "^3.1.0",

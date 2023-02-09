@@ -60,13 +60,20 @@
   margin-bottom: 24px;
   outline-color: #10a37f;
 }
+.main input {
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  outline-color: #10a37f;
+}
 
 .main ::placeholder {
   color: #8e8ea0;
   opacity: 1;
 }
 
-.main button {
+.main .sub {
   padding: 12px 0;
   color: #fff;
   background-color: #10a37f;
@@ -74,6 +81,18 @@
   border-radius: 4px;
   text-align: center;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+.main .loginout {
+  color: #fff;
+  background-color: #10a37f;
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  border-radius: 20px;
 }
 
 .main .result {
