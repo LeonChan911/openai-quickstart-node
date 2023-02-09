@@ -56,6 +56,7 @@ export default function Home() {
         } else {
           Toast.info("AI出错啦~ 请重新再试");
         }
+        setLoading(false);
         return;
       }
 
