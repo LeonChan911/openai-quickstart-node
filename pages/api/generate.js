@@ -6,6 +6,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 let UserListInfo = { ...UserList };
+// 每天凌晨初始化
 schedule.scheduledJobs("0 0 0 * * *", () => {
   UserListInfo = { ...UserList };
 });
