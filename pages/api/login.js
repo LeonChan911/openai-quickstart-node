@@ -1,5 +1,5 @@
 
-const UserList = {
+export const UserList = {
   root: {
     username: "root",
     password: "chenyin1991911",
@@ -8,32 +8,37 @@ const UserList = {
   user1: {
     username: "user1",
     password: "5tfded",
-    times: 30,
+    times: 100,
   },
   user2: {
     username: "user2",
     password: "3dfef4",
-    times: 30,
+    times: 20,
   },
   user3: {
     username: "user3",
     password: "134ed4",
-    times: 30,
+    times: 20,
   },
   user4: {
     username: "user4",
     password: "dfe3we",
-    times: 30,
+    times: 20,
   },
   user5: {
     username: "user5",
     password: "90jjj",
-    times: 30,
+    times: 20,
   },
   user6: {
     username: "user6",
     password: "23d00f",
-    times: 30,
+    times: 20,
+  },
+  test: {
+    username: "test",
+    password: "test123",
+    times: 3,
   },
 };
 

@@ -49,12 +49,14 @@ export default function Home() {
       });
 
       const data = await response.json();
+
       if (response.status !== 200) {
-        Toast.info("AI出错啦~ 请重新再试");
-        throw (
-          data.error ||
-          new Error(`Request failed with status ${response.status}`)
-        );
+        if (response.status === 501) {
+          Toast.info("用户超过当天使用次数，请明天再试");
+        } else {
+          Toast.info("AI出错啦~ 请重新再试");
+        }
+        return;
       }
 
       setResult(data.result);
