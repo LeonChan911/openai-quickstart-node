@@ -142,9 +142,7 @@ export default function Home() {
         ) : (
           <div className={styles.result}>{result}</div>
         )}
-        {
-          !userInfo && <p>申请账号请添加微信号：godlovecy</p>
-        }
+        {!userInfo && <p>申请账号请添加微信号：godlovecy</p>}
         <div className={styles.pay}>
           <p>打赏他!!!</p>
           <img

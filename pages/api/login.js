@@ -1,12 +1,3 @@
-import { Configuration, OpenAIApi } from "openai";
-import fs from "fs";
-import path from "path";
-const configFile = path.resolve(__dirname, "./user.json");
-
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
 
 const UserList = {
   root: {
@@ -47,14 +38,12 @@ const UserList = {
 };
 
 export default async function (req, res) {
+  const username = req.body.username.trim();
+  const password = req.body.password.trim();
 
-    const username = req.body.username.trim();
-    const password = req.body.password.trim();
-
-    if (UserList[username] && UserList[username].password === password) {
-      res.status(200).json({ result: true, user: UserList[username] });
-    } else {
-      res.status(400).json({ result: false });
-    }
-
+  if (UserList[username] && UserList[username].password === password) {
+    res.status(200).json({ result: true, user: UserList[username] });
+  } else {
+    res.status(400).json({ result: false });
+  }
 }
