@@ -1,13 +1,13 @@
 import { Configuration, OpenAIApi } from "openai";
 import { UserList } from "./login";
-import schedule from "node-schedule";
+import { scheduleJob } from "node-schedule";
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 let UserListInfo = { ...UserList };
 // 每天凌晨初始化
-schedule.scheduledJobs("0 0 0 * * *", () => {
+scheduleJob("0 0 0 * * *", () => {
   UserListInfo = { ...UserList };
 });
 export default async function (req, res) {
