@@ -1,8 +1,4 @@
 import { Configuration, OpenAIApi } from "openai";
-import fs from "fs";
-import path from "path";
-const configFile = path.resolve(__dirname, "./user.json");
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
