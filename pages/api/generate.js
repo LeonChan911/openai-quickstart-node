@@ -1,14 +1,37 @@
 import { Configuration, OpenAIApi } from "openai";
 import { UserList } from "./login";
 import { scheduleJob } from "node-schedule";
+import { MongoClient } from "mongodb";
+const url = process.env.MONGODB;
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-let UserListInfo = { ...UserList };
+let UserListInfo = {};
+const setUserListInfo = () => {
+  MongoClient.connect(url)
+    .then((conn) => {
+      const user = conn.db("yin").collection("user");
+      // 查询
+      user
+        .find()
+        .toArray()
+        .then((arr) => {
+          if (arr && arr.length > 0) {
+            let UserLists = arr[0];
+            delete UserLists._id;
+            UserListInfo = { ...UserLists };
+          }
+          conn.close();
+        });
+    })
+    .catch((err) => {});
+};
+setUserListInfo();
 // 每天凌晨初始化
 scheduleJob("0 0 0 * * *", () => {
-  UserListInfo = { ...UserList };
+  setUserListInfo();
 });
 export default async function (req, res) {
   if (!configuration.apiKey) {
@@ -19,7 +42,6 @@ export default async function (req, res) {
     });
     return;
   }
-
   if (
     !req.cookies ||
     !req.cookies["x-username"] ||
