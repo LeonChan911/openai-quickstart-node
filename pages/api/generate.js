@@ -24,6 +24,9 @@ const setUserListInfo = () => {
             UserListInfo = { ...UserLists };
           }
           conn.close();
+        })
+        .catch(() => {
+          conn.close();
         });
     })
     .catch((err) => {});

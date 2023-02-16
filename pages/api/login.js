@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 const url = process.env.MONGODB;
 
-;export default async function (req, res) {
+export default async function (req, res) {
   const username = req.body.username.trim();
   const password = req.body.password.trim();
-  console.log('url',url);
+
   MongoClient.connect(url)
     .then((conn) => {
       const user = conn.db("yin").collection("user");
@@ -25,6 +25,9 @@ const url = process.env.MONGODB;
               res.status(400).json({ result: false });
             }
           }
+          conn.close();
+        })
+        .catch(() => {
           conn.close();
         });
     })
